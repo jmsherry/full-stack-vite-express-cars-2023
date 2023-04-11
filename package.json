@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup": "concurrently --kill-others-on-fail  \"npm --prefix server ci\" \"npm --prefix client ci --network-concurrency 1\"",
-    "start": "npm run clean && npm run build:client && npm --prefix server run start",
+    "start": "npm run clean && npm run setup && npm run build:client && npm run start:server",
     "build:client": "npm --prefix client run build",
     "start:server": "npm --prefix server run start",
     "start:dev": "concurrently --kill-others-on-fail  \"npm run start:dev:client\" \"npm run start:dev:server --network-concurrency 1\"",
     "start:dev:client": "npm --prefix client run dev",
     "start:dev:server": "npm --prefix server run start:dev",
+    "postinstall": "echo \"POST-INSTALL\" && npm run setup",
     "clean": "npx rimraf ./client/dist"
   },
   "keywords": [],
