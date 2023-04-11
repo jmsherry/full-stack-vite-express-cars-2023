@@ -50,6 +50,9 @@ export const CarsProvider = ({ children }) => {
   const addCar = useCallback(
     async (formData) => {
       console.log("about to add", formData);
+      if(formData.avatar_url === ''){
+        delete formData.avatar_url;
+      }
       try {
         const response = await fetch(CARS_ENDPOINT, {
           method: "POST",
