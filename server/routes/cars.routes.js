@@ -45,7 +45,7 @@ router
         `Value for 'bhp' must be a positive integer between ${MIN_BHP} and ${MAX_BHP}`
       ),
     body("avatar_url")
-      .optional()
+      .optional({ checkFalsy: true })
       .trim()
       .escape()
       .isLength({ min: MIN_STR_LEN, max: MAX_STR_LEN })
