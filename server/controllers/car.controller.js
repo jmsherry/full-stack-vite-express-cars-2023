@@ -26,6 +26,10 @@ exports.addCar = async (req, res) => {
 
   const carData = req.body;
   logger.info(carData);
+  if(carData.avatar_url === '') {
+    delete carData.avatar_url;
+  }
+  logger.info(carData);
   try {
     const newCar = new Car(carData);
     const result = await newCar.save();
