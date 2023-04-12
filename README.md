@@ -11,3 +11,7 @@ During development you're on 2 separate servers, so that means that the dev serv
 ## Winston Logging
 
 <https://lioncoding.com/logging-in-express-js-using-winston-and-morgan/>
+
+## Deploy via Railway
+
+<https://railway.app/>
