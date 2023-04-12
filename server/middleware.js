@@ -12,13 +12,16 @@ module.exports = function (app) {
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/", "dist")));
     app.use(compression());
+    app.use(helmet());
   }
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
-  app.use(cors());
-  app.use(helmet());
+
+  // app.use(cors()); // If you want your API open to the public
+  
+  // Logging
   app.use(httpLogger);
   app.use(expressWinston.logger({
     transports: [
