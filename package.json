@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "npm run install:client && npm run install:server",
+    "setup": "concurrently --kill-others-on-fail  \"npm run install:client\" \"npm run install:server\" --network-concurrency 1",
     "install:client": "npm --prefix client ci",
     "install:server": "npm --prefix server ci",
     "uninstall:client": "rm -rf client/node_modules",
