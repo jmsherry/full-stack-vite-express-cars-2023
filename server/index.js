@@ -8,7 +8,7 @@ const {
 
 require('./process-handlers')(server);
 
-const HOST = LOCAL ? '127.0.0.1' : '0.0.0.0';
+const HOST = LOCAL === true ? '127.0.0.1' : '0.0.0.0';
 
 server.listen(PORT, HOST, () => {
   console.log(`Server listening on http://${HOST}:${PORT}`);
