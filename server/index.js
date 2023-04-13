@@ -3,7 +3,7 @@ const app = require('./server');
 
 const {
   PORT=3333,
-  HOST='0.0.0.0'
+  HOST='127.0.0.1'
 } = process.env;
 
 const server = app.listen(PORT, HOST, () => {
