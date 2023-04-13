@@ -1,16 +1,13 @@
 require('dotenv').config()
-const server = require('./server');
+const app = require('./server');
 
 const {
   PORT=3333,
-  LOCAL=true
+  HOST='0.0.0.0'
 } = process.env;
 
-require('./process-handlers')(server);
-
-const HOST = LOCAL === true ? '127.0.0.1' : '0.0.0.0';
-
-server.listen(PORT, HOST, () => {
+const server = app.listen(PORT, HOST, () => {
   console.log(`Server listening on http://${HOST}:${PORT}`);
 });
 
+require('./process-handlers')(server);
